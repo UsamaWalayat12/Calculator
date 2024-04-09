@@ -1,0 +1,150 @@
+ 
+
+   * {
+    margin: 0;
+    padding: 0;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #021027;
+  }
+  
+  .container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .background {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  
+    mask-image: radial-gradient(
+      white 0%,
+      white 30%,
+      transparent 80%,
+      transparent
+    );
+  }
+  
+  .circle-container {
+    position: absolute;
+    transform: translateY(-10vh);
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+  
+  .circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    mix-blend-mode: screen;
+    background-image: radial-gradient(
+      hsl(180, 100%, 80%),
+      hsl(180, 100%, 80%) 10%,
+      hsla(180, 100%, 80%, 0) 56%
+    );
+  
+    animation: fade-frames 200ms infinite, scale-frames 2s infinite;
+  }
+  
+  @keyframes fade-frames {
+    0% {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0.7;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes scale-frames {
+    0% {
+      transform: scale3d(0.4, 0.4, 1);
+    }
+  
+    50% {
+      transform: scale3d(2.2, 2.2, 1);
+    }
+  
+    100% {
+      transform: scale3d(0.4, 0.4, 1);
+    }
+  }
+  
+  .calculator {
+    width: 300px;
+    margin: 100px auto;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #f9f9f9;
+  }
+  
+  .calculator input[type="button"] {
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .calculator input[type="text"] {
+    width: 100%;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 24px;
+    text-align: right;
+  }
+  
+  @keyframes bgAnimation {
+    from { background-color: #f9f9f9; }
+    to { background-color: #e6f7ff; }
+  }
+  
+  .message {
+    position: absolute;
+    right: 20px;
+    bottom: 10px;
+    color: white;
+    font-family: "Josefin Slab", serif;
+    line-height: 27px;
+    font-size: 18px;
+    text-align: right;
+    pointer-events: none;
+    animation: message-frames 1.5s ease 5s forwards;
+    opacity: 0;
+  }
+  
+  @keyframes message-frames {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
